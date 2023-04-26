@@ -1,23 +1,19 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { useState } from "react";
+import { Categories } from "./components/Categories";
+import { Products } from "./components/Products";
 
 function App() {
+  const [category, setCategory] = useState(null);
+
+  function selectCategory(event) {
+    const category = event.target.textContent.replace("FAKE: ", "");
+    setCategory(category);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Products</h1>
+      <Categories handleCategoryNameClick={selectCategory} />
+      <Products categoryName={category} />
     </div>
   );
 }

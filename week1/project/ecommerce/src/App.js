@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <h1>Products</h1>
-      <Categories handleCategoryNameClick={selectCategory} />
+      <Categories selectCategory={selectCategory} />
       <Products categoryName={category} />
     </div>
   );

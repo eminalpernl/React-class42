@@ -1,8 +1,8 @@
 import { useState } from "react";
 import categories from "../fake-data/all-categories";
 
-export const Categories = ({ handleCategoryNameClick }) => {
-  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(null);
+export const Categories = ({ selectCategory, selectedCategory }) => {
+  const [selectedCategoryName, setSelectedCategoryName] = useState(null);
 
   return (
     <div className="categories">
@@ -10,13 +10,13 @@ export const Categories = ({ handleCategoryNameClick }) => {
         <div
           key={index}
           className={
-            selectedCategoryIndex === index
+            selectedCategoryName === selectedCategory
               ? "cat-item sel-cat-item"
               : "cat-item"
           }
           onClick={(e) => {
-            setSelectedCategoryIndex(index);
-            handleCategoryNameClick(e);
+            setSelectedCategoryName(selectedCategory);
+            selectCategory(e);
           }}
         >
           {category}

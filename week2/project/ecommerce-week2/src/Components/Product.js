@@ -5,13 +5,12 @@ import { useParams } from "react-router-dom";
 export default function Product() {
   const { id } = useParams();
   const { data, isLoading, error } = useFetch(
-    `https://fakestoreapi.com/products/${id}`,
-    [id]
+    `https://fakestoreapi.com/products/${id}`
   );
   const product = data;
-
+  console.log(data);
   if (isLoading) {
-    return <div>Something is loading...</div>;
+    return <div>Product(s) is loading...</div>;
   }
 
   if (error) {

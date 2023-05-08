@@ -8,8 +8,11 @@ export default function Products({ selectedCategory }) {
     url = "https://fakestoreapi.com/products/category/" + selectedCategory;
   }
 
-  const { data, isLoading, error } = useFetch(url, [selectedCategory]);
+  //console.log(url);
+
+  const { data, isLoading, error } = useFetch(url);
   const products = data;
+  //console.log(useFetch(url));
 
   if (isLoading) {
     return <div>Product(s) is loading...</div>;

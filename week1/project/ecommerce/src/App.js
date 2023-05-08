@@ -10,7 +10,7 @@ function App() {
     setCategory(category);
   }
   return (
-    <div className="App">
+    <div className="app">
       <h1>Products</h1>
       <Categories selectCategory={selectCategory} />
       <Products categoryName={category} />

@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <ul className="nav-list-wrap">
       <li className="nav-link">
-        <a href="/">Products</a>
+        <Link to={"/"}>Products</Link>
       </li>
       <li className="nav-link">
-        <a href="/favorites">Favorites</a>
+        <Link to={"/favorites"}>Favorites</Link>
       </li>
     </ul>
   );

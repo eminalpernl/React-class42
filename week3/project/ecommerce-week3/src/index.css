@@ -124,6 +124,24 @@ button,select {
   width: 100%
 }
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-list-wrap{
+  display: flex;
+  list-style: none;
+}
+
+
+.nav-link {
+margin: auto;
+margin-right: 1rem;
+}
+
+
+
 @media (min-width: 600px) {
   .products--item {
       width:calc(50% - 16px)

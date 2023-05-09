@@ -3,6 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import Categories from "./Components/Categories";
 import Products from "./Components/Products";
 import Product from "./Components/Product";
+import Navbar from "./Components/Navbar";
+import Favorites from "./Components/Favorites";
+import { FavoritesProvider } from "./Components/FavoritesContext";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -15,22 +18,29 @@ function App() {
   };
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <>
-            <h1>Products</h1>
-            <Categories
-              selectedCategory={selectedCategory}
-              categoryClick={categoryClick}
-            />
-            <Products selectedCategory={selectedCategory} />
-          </>
-        }
-      />
-      <Route path="/product/:id" element={<Product />} />
-    </Routes>
+    <FavoritesProvider>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <div className="nav">
+                <h1>Products</h1>
+                <Navbar />
+              </div>
+
+              <Categories
+                selectedCategory={selectedCategory}
+                categoryClick={categoryClick}
+              />
+              <Products selectedCategory={selectedCategory} />
+            </>
+          }
+        />
+        <Route path="/product/:id" element={<Product />} />
+        <Route path="/favorites" element={<Favorites />}></Route>
+      </Routes>
+    </FavoritesProvider>
   );
 }
 

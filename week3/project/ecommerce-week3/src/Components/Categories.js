@@ -15,7 +15,7 @@ export default function Categories({ selectedCategory, categoryClick }) {
   }, [data]);
 
   if (isLoading) {
-    return <div>Something is loading...</div>;
+    return <div>Loading...</div>;
   }
 
   if (error) {

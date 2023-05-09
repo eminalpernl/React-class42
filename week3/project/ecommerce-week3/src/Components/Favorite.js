@@ -5,6 +5,7 @@ import heartSolid from "../assets/heart-solid.svg";
 export default function Favorite({ productId, isFavorited, onClick }) {
   const heartClick = () => {
     onClick(productId);
+    console.log("clicked");
   };
 
   return (

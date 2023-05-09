@@ -5,7 +5,7 @@ import { FavoritesContext } from "./FavoritesContext";
 
 function Favorites() {
   const [favoriteProducts, setFavoriteProducts] = useState([]);
-  const { favorites, handleClick } = useContext(FavoritesContext);
+  const { favorites, clickHandler } = useContext(FavoritesContext);
 
   useEffect(() => {
     const fetchFavoriteProducts = async () => {
@@ -55,7 +55,7 @@ function Favorites() {
               <Favorite
                 productId={product.id}
                 isFavorited={favorites.includes(product.id)}
-                onClick={() => handleClick(product.id)}
+                onClick={() => clickHandler(product.id)}
               />
               <Link to={`/product/${product.id}`} className="product--title">
                 {product.title}

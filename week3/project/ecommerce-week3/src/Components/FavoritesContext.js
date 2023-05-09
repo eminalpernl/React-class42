@@ -15,6 +15,7 @@ export function FavoritesProvider({ children }) {
       setFavorites([...favorites, productId]);
     }
   };
+  console.log(favorites);
   return (
     <FavoritesContext.Provider value={{ favorites, clickHandler }}>
       {children}

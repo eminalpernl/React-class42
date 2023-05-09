@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import useFetch from "./UseFetch";
 import { Link } from "react-router-dom";
+import Favorite from "./Favorite";
+import { FavoritesContext } from "./FavoritesContext";
 
 export default function Products({ selectedCategory }) {
   let url = "https://fakestoreapi.com/products";
@@ -8,14 +10,12 @@ export default function Products({ selectedCategory }) {
     url = "https://fakestoreapi.com/products/category/" + selectedCategory;
   }
 
-  //console.log(url);
-
   const { data, isLoading, error } = useFetch(url);
   const products = data;
-  //console.log(useFetch(url));
+  const { favorites, clickHandler } = useContext(FavoritesContext);
 
   if (isLoading) {
-    return <div>Product(s) is loading...</div>;
+    return <div>Loading...</div>;
   }
 
   if (error) {
@@ -33,6 +33,11 @@ export default function Products({ selectedCategory }) {
                 alt={product.id}
                 src={product.image}
               ></img>
+              <Favorite
+                productId={product.id}
+                isFavorited={favorites.includes(product.id)}
+                onClick={() => clickHandler(product.id)}
+              />
               <Link to={`/product/${product.id}`} className="product--title">
                 {product.title}
               </Link>

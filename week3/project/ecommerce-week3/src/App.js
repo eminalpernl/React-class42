@@ -18,29 +18,31 @@ function App() {
   };
 
   return (
-    <FavoritesProvider>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <div className="nav">
-                <h1>Products</h1>
-                <Navbar />
-              </div>
+    <>
+      <FavoritesProvider>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <div className="nav">
+                  <h1>Products</h1>
+                  <Navbar />
+                </div>
 
-              <Categories
-                selectedCategory={selectedCategory}
-                categoryClick={categoryClick}
-              />
-              <Products selectedCategory={selectedCategory} />
-            </>
-          }
-        />
-        <Route path="/product/:id" element={<Product />} />
-        <Route path="/favorites" element={<Favorites />}></Route>
-      </Routes>
-    </FavoritesProvider>
+                <Categories
+                  selectedCategory={selectedCategory}
+                  categoryClick={categoryClick}
+                />
+                <Products selectedCategory={selectedCategory} />
+              </>
+            }
+          />
+          <Route path="/product/:id" element={<Product />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </FavoritesProvider>
+    </>
   );
 }
 
